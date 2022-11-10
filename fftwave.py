@@ -56,4 +56,3 @@ def fftwave(u, v, sz = 128):
 	a6.title.set_text("angle(F) (wavelength %f)" % wavelength)
 
 	plt.show()
-

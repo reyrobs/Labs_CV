@@ -94,19 +94,27 @@ def ex3():
 
 
 def ex4():
-    F = np.concatenate([np.zeros((60, 128)), np.ones((8, 128)), np.zeros((60, 128))]) * \
-        np.concatenate([np.zeros((128, 48)), np.ones((128, 32)), np.zeros((128, 48))], axis=1)
+    # F = np.concatenate([np.zeros((60, 128)), np.ones((8, 128)), np.zeros((60, 128))]) * \
+    #     np.concatenate([np.zeros((128, 48)), np.ones((128, 32)), np.zeros((128, 48))], axis=1)
+    #
+    # # showgrey(F)
+    # # showfs(fft2(F))
+    # alpha = [30, 60, 90]
+    # for angle in alpha:
+    #     G = rot(F, angle)
+    #     showgrey(G)
+    #     Ghat = fft2(G)
+    #     showfs(Ghat)
+    #     Hhat = rot(fftshift(Ghat), -angle)
+    #     showgrey(np.log(1 + abs(Hhat)))
 
-    # showgrey(F)
-    # showfs(fft2(F))
-    alpha = [30, 60, 90]
-    for angle in alpha:
-        G = rot(F, angle)
-        showgrey(G)
-        Ghat = fft2(G)
-        showfs(Ghat)
-        Hhat = rot(fftshift(Ghat), -angle)
-        showgrey(np.log(1 + abs(Hhat)))
+
+    images = ['phonecalc128.npy', 'office128.npy']
+    for loc in images:
+        img = np.load(f"images-npy/{loc}")
+        showgrey(img)
+        showgrey(pow2image(img))
+        showgrey(randphaseimage(img))
 
 if __name__ == '__main__':
 
